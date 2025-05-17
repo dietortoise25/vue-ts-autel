@@ -13,8 +13,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-
+import SolutionSubbar from '@/components/Menubar/SolutionSubbar.vue';
 import MenuBar from '@/components/MenuBar.vue';
+import { ref } from 'vue'
+const isHovering = ref(false)
 
 defineProps(['darkMode'])
 
@@ -22,6 +24,7 @@ const tabsLeft = [
   {
     id: 1,
     title: 'Solution',
+    component: SolutionSubbar
   },
   {
     id: 2,
@@ -83,11 +86,13 @@ const navTop = [
 </script>
 
 <template>
-  <div class="z-1 fixed top-0 left-0 right-0 w-full flex flex-col items-center">
+  <div class="z-1 fixed top-0 left-0 right-0 w-full flex flex-col items-center transition-colors ease-in-out"
+    :class="isHovering ? 'bg-white text-black' : darkMode ? 'text-white' : ''" @mouseenter="isHovering = true"
+    @mouseleave="isHovering = false">
+
 
     <!-- nav-top -->
-    <div class="w-full h-10 lg:w-[960px] 2xl:w-[1520px] hidden md:flex justify-end"
-      :class="darkMode ? 'text-white' : 'text-black'">
+    <div class="w-full h-10 lg:w-[960px] 2xl:w-[1520px] hidden md:flex justify-end">
       <div class="flex gap-4 justify-between items-center">
         <div v-for="(item) in navTop" :key="item.id" class="flex gap-2 items-center">
           <component :is="item.component" />
@@ -97,13 +102,12 @@ const navTop = [
 
 
     <!-- nav-bottom -->
-    <div class="w-full h-16 lg:w-[960px] 2xl:w-[1520px] flex justify-between items-center"
-      :class="darkMode && 'text-white'">
+    <div class="w-full h-16 lg:w-[960px] 2xl:w-[1520px] flex justify-between items-center">
 
       <!-- nav-bottom-left -->
-      <div class="flex lg:gap-[20px] 2xl:gap-[50px] justify-between">
+      <div class="flex h-full lg:gap-[20px] 2xl:gap-[50px] justify-between">
         <!-- logo -->
-        <img :src="logo" alt="">
+        <img :src="logo" alt="" class="w-[130px]">
         <MenuBar :tabs="tabsLeft" />
       </div>
 
@@ -111,7 +115,6 @@ const navTop = [
       <div class="hidden md:flex gap-[10px] 2xl:gap-[24px] justify-between">
         <!-- menu -->
         <MenuBar :tabs="tabsRight" />
-        <NaviMenu />
         <!-- button -->
         <Button>Talk to An Expert</Button>
       </div>
