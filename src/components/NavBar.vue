@@ -1,0 +1,136 @@
+<script setup lang='ts'>
+import searchIcon from '@/components/icons/searchIcon.vue';
+import shopIcon from '@/components/icons/shopIcon.vue';
+import earthIcon from '@/components/icons/earthIcon.vue';
+import userIcon from '@/components/icons/userIcon.vue';
+import logo from '@/components/icons/logo.svg';
+import humburger from '@/components/icons/humburger.vue';
+
+import Button from '@/components/ui/button/Button.vue';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+
+import MenuBar from '@/components/MenuBar.vue';
+
+defineProps(['darkMode'])
+
+const tabsLeft = [
+  {
+    id: 1,
+    title: 'Solution',
+  },
+  {
+    id: 2,
+    title: 'Products',
+  },
+  {
+    id: 3,
+    title: 'Partners',
+  },
+  {
+    id: 4,
+    title: 'Services',
+  },
+  {
+    id: 5,
+    title: 'Resources',
+  },
+  {
+    id: 6,
+    title: 'About',
+  }
+]
+
+const tabsRight = [
+  {
+    id: 1,
+    title: 'MediaBank',
+  },
+  {
+    id: 2,
+    title: 'Shop',
+  }
+]
+
+const navTop = [
+  {
+    id: 1,
+    title: 'Search',
+    component: searchIcon,
+  },
+  {
+    id: 2,
+    title: 'Shop',
+    component: shopIcon,
+  },
+  {
+    id: 3,
+    title: 'Earth',
+    component: earthIcon,
+  },
+  {
+    id: 4,
+    title: 'User',
+    component: userIcon,
+  }
+]
+
+
+</script>
+
+<template>
+  <div class="z-1 fixed top-0 left-0 right-0 w-full flex flex-col items-center">
+
+    <!-- nav-top -->
+    <div class="w-full h-10 lg:w-[960px] 2xl:w-[1520px] hidden md:flex justify-end"
+      :class="darkMode ? 'text-white' : 'text-black'">
+      <div class="flex gap-4 justify-between items-center">
+        <div v-for="(item) in navTop" :key="item.id" class="flex gap-2 items-center">
+          <component :is="item.component" />
+        </div>
+      </div>
+    </div>
+
+
+    <!-- nav-bottom -->
+    <div class="w-full h-16 lg:w-[960px] 2xl:w-[1520px] flex justify-between items-center"
+      :class="darkMode && 'text-white'">
+
+      <!-- nav-bottom-left -->
+      <div class="flex lg:gap-[20px] 2xl:gap-[50px] justify-between">
+        <!-- logo -->
+        <img :src="logo" alt="">
+        <MenuBar :tabs="tabsLeft" />
+      </div>
+
+      <!-- nav-bottom-right -->
+      <div class="hidden md:flex gap-[10px] 2xl:gap-[24px] justify-between">
+        <!-- menu -->
+        <MenuBar :tabs="tabsRight" />
+        <NaviMenu />
+        <!-- button -->
+        <Button>Talk to An Expert</Button>
+      </div>
+
+      <!-- menu-mobile -->
+      <DropdownMenu>
+        <DropdownMenuTrigger as-child>
+          <Button variant="ghost" size="icon" class="md:hidden">
+            <humburger class="w-full" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>Profile</DropdownMenuItem>
+          <DropdownMenuItem>Billing</DropdownMenuItem>
+          <DropdownMenuItem>Team</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  </div>
+</template>
+
+<style scoped></style>
