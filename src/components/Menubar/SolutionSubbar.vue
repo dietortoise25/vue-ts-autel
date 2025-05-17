@@ -24,7 +24,7 @@ const solutions = [
     <div class="2xl:w-[1520px] h-full py-[40px] px-auto mx-auto">
       <div class="2xl:w-[1152px] mx-auto h-full z-99 flex justify-between xl:gap-[100px]">
 
-        <div v-for="solution in solutions" :key="solution.title" class="space-y-[20px] mb-[30px]">
+        <div v-for="solution in solutions" :key="solution.title" class="space-y-[20px] mb-[30px] p-4">
           <div class="text-zinc-900">{{ solution.title }}</div>
           <div class="text-stone-500 text-smleading-snug">
             {{ solution.description }}
