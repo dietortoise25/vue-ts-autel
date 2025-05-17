@@ -1,14 +1,13 @@
 <script setup lang="ts">
-// import Header from '@/components/Header.vue';
+import Header from '@/components/Header.vue';
 
-// import DemoClick from '@/components/DemoClick.vue';
-import DemoScroll from '@/components/DemoScroll.vue';
+
+
 </script>
 
 <template>
-  <!-- <Header /> -->
-  <!-- <DemoClick /> -->
-  <DemoScroll />
+  <Header />
+
 </template>
 
 <style scoped></style>
