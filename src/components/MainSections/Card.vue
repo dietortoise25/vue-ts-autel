@@ -10,7 +10,7 @@ defineProps(['isOdd', 'cardContent'])
   flex flex-col md:flex-row overflow-hidden
   " :class="isOdd ? '' : 'md:flex-row-reverse'">
     <!-- image -->
-    <img :src="cardContent.image" alt="" class="w-full md:w-55/100">
+    <img :src="cardContent.image" alt="" class="w-full md:w-55/100 object-cover">
     <!-- text -->
     <div class="flex flex-col justify-center p-10 gap-[20px]">
       <div class="text-black text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium">

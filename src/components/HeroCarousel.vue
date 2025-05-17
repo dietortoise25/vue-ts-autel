@@ -56,7 +56,7 @@ watch(current, (val) => {
       <CarouselContent>
         <CarouselItem v-for="(item, index) in carouselItems" :key="index" class="w-full h-full">
           <!-- darkMode遮罩 -->
-          <div class="relative select-none h-[100vh]">
+          <div class="relative select-none h-[50vh] md:h-[100vh]">
             <div v-show="item.darkMode"
               class="absolute bg-linear-to-b from-black/50 to-black/0 w-full h-72 inset-x-0" />
             <!-- 轮播图主体 -->

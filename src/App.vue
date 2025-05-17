@@ -8,7 +8,7 @@ import { MainSections } from './components/MainSections';
 
 <template>
   <Header />
-  <main class="mt-[100vh]">
+  <main class="mt-[50vh] md:mt-[100vh]">
     <MainSections />
   </main>
 
