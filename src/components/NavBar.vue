@@ -92,9 +92,10 @@ const navTop = [
 
 
     <!-- nav-top -->
-    <div class="w-full mx-auto transition-colors ease-in-out"
+    <div class="w-full mx-auto transition-colors ease-in-out hidden md:flex "
       :class="isHovering ? 'bg-white ' : darkMode ? 'bg-black/50' : 'bg-white/50'" @mouseenter="isHovering = true">
-      <div class="w-full h-10 lg:w-[960px] 2xl:w-[1520px] hidden md:flex justify-end">
+
+      <div class="w-full h-10 lg:w-[960px] 2xl:w-[1520px]  mx-auto flex justify-end">
         <div class="flex gap-4 justify-between items-center">
           <div v-for="(item) in navTop" :key="item.id" class="flex gap-2 items-center">
             <component :is="item.component" />
