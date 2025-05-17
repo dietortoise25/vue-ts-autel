@@ -1,8 +1,10 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang='ts'>
 
 import RightArrow from '@/components/icons/RightArrow.vue';
 
 defineProps(['isOdd', 'cardContent'])
+
 </script>
 
 <template>
@@ -19,13 +21,11 @@ defineProps(['isOdd', 'cardContent'])
       <div class="text-zinc-800 2xl:text-xl xl:text-lg lg:text-md md:text-lg sm:text-md text-sm font-normal">
         {{ cardContent.description }}
       </div>
-      <div class="text-primary flex gap-2 items-center">
+      <a :href="cardContent.link" class="text-primary flex gap-2 items-center">
         Learn more<span class="size-2.5">
           <RightArrow />
         </span>
-      </div>
+      </a>
     </div>
   </div>
 </template>
-
-<style scoped></style>

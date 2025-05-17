@@ -52,6 +52,7 @@ watch(current, (val) => {
   <div class="relative w-full h-full">
     <Carousel @init-api="setApi" class="relative w-full h-full" :opts="{
       align: 'start',
+      loop: true,
     }">
       <CarouselContent>
         <CarouselItem v-for="(item, index) in carouselItems" :key="index" class="w-full h-full">
