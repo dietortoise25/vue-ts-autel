@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { SolutionSection } from '.';
 import { ProductSection } from '.';
+import SoftwareSection from './SoftwareSection.vue';
 
 
 </script>
@@ -13,8 +14,8 @@ import { ProductSection } from '.';
   <section class="bg-white pb-4 md:pb-12 2xl:pb-18">
     <ProductSection />
   </section>
-  <section class="w-full h-[50vh] bg-black text-white text-6xl">
-    Charging Management Software.
+  <section>
+    <SoftwareSection />
   </section>
   <section class="bg-white pb-4 md:pb-12 2xl:pb-18">
     <ProductSection />

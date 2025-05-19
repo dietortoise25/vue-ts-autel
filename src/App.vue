@@ -1,17 +1,6 @@
-<script setup lang="ts">
-import Header from '@/components/Header.vue';
-import { MainSections } from './components/MainSections';
-
-
-
-</script>
-
+<!-- App.vue -->
 <template>
-  <Header />
-  <main class="mt-[50vh] md:mt-[100vh]">
-    <MainSections />
-  </main>
-
+  <div id="app">
+    <router-view />
+  </div>
 </template>
-
-<style scoped></style>

@@ -131,7 +131,9 @@ const navTop = [
         <!-- nav-bottom-left -->
         <div class="flex h-full lg:gap-[20px] 2xl:gap-[50px] justify-between">
           <!-- logo -->
-          <img :src="logo" alt="" class="">
+          <RouterLink to="/">
+            <img :src="logo" alt="" class="w-[65px] md:w-[130px] mx-4">
+          </RouterLink>
           <MenuBar :tabs="tabsLeft" />
         </div>
         <!-- nav-bottom-right -->
