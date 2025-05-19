@@ -1,13 +1,13 @@
-<script setup lang='ts'>
-import searchIcon from '@/components/icons/searchIcon.vue';
-import shopIcon from '@/components/icons/shopIcon.vue';
-import earthIcon from '@/components/icons/earthIcon.vue';
-import userIcon from '@/components/icons/userIcon.vue';
+<script setup lang="ts">
+import searchIcon from '@/components/icons/searchIcon.vue'
+import shopIcon from '@/components/icons/shopIcon.vue'
+import earthIcon from '@/components/icons/earthIcon.vue'
+import userIcon from '@/components/icons/userIcon.vue'
 
-import logo from '@/components/icons/logo.svg';
-import humburger from '@/components/icons/humburger.vue';
+import logo from '@/components/icons/logo.svg'
+import humburger from '@/components/icons/humburger.vue'
 
-import Button from '@/components/ui/button/Button.vue';
+import Button from '@/components/ui/button/Button.vue'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,11 +15,10 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import MenuBar from '@/components/MenuBar.vue';
-import SolutionSubbar from '@/components/Menubar/SolutionSubbar.vue';
+import MenuBar from '@/components/MenuBar.vue'
+import SolutionSubbar from '@/components/Menubar/SolutionSubbar.vue'
 
 import { onMounted, ref } from 'vue'
-
 
 const isHovering = ref(false)
 onMounted(() => {
@@ -31,19 +30,18 @@ onMounted(() => {
   })
 })
 
-
 defineProps({
   darkMode: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const tabsLeft = [
   {
     id: 1,
     title: 'Solution',
-    component: SolutionSubbar
+    component: SolutionSubbar,
   },
   {
     id: 2,
@@ -64,7 +62,7 @@ const tabsLeft = [
   {
     id: 6,
     title: 'About',
-  }
+  },
 ]
 
 const tabsRight = [
@@ -75,7 +73,7 @@ const tabsRight = [
   {
     id: 2,
     title: 'Shop',
-  }
+  },
 ]
 
 const navTop = [
@@ -98,26 +96,22 @@ const navTop = [
     id: 4,
     title: 'User',
     component: userIcon,
-  }
+  },
 ]
-
-
 </script>
 
 <template>
-
   <div class="z-1 fixed top-0 left-0 right-0 w-full flex flex-col items-center transition-all duration-500 ease-in-out"
     :class="isHovering ? 'bg-white text-black' : darkMode ? 'text-white' : ''" @mouseenter="isHovering = true"
     @mouseleave="isHovering = false">
 
-
     <!-- nav-top -->
-    <div class="w-full mx-auto transition-all duration-500 ease-in-out hidden md:flex "
+    <div class="w-full mx-auto transition-all duration-500 ease-in-out hidden md:flex"
       :class="isHovering ? 'bg-white ' : darkMode ? 'bg-black/50' : 'bg-white/50'" @mouseenter="isHovering = true">
       <div class="container mx-auto">
         <div class="w-full h-10 flex justify-end">
           <div class="flex gap-4 justify-between items-center">
-            <div v-for="(item) in navTop" :key="item.id" class="flex gap-2 items-center">
+            <div v-for="item in navTop" :key="item.id" class="flex gap-2 items-center">
               <component :is="item.component" />
             </div>
           </div>
@@ -132,7 +126,7 @@ const navTop = [
         <div class="flex h-full lg:gap-[20px] 2xl:gap-[50px] justify-between">
           <!-- logo -->
           <RouterLink to="/">
-            <img :src="logo" alt="" class="w-[65px] md:w-[130px] mx-4">
+            <img :src="logo" alt="" class="w-[65px] md:w-[130px] mx-4" />
           </RouterLink>
           <MenuBar :tabs="tabsLeft" />
         </div>
@@ -144,7 +138,6 @@ const navTop = [
           <Button>Talk to An Expert</Button>
         </div>
       </div>
-
 
       <!-- menu-mobile -->
       <DropdownMenu>

@@ -1,16 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<script setup lang='ts'>
+<script setup lang="ts">
 import { ref, computed } from 'vue'
 
-import HeroCarousel from '@/components/HeroCarousel.vue';
-import heroCarousel1 from '@/assets/hero-carousel-1.png';
-import heroCarousel2 from '@/assets/hero-carousel-2.png';
-import heroCarousel3 from '@/assets/hero-carousel-3.png';
+import HeroCarousel from '@/components/HeroCarousel.vue'
+import heroCarousel1 from '@/assets/hero-carousel-1.png'
+import heroCarousel2 from '@/assets/hero-carousel-2.png'
+import heroCarousel3 from '@/assets/hero-carousel-3.png'
 // import NaviMenu from '@/components/NaviMenu.vue';
-import NavBar from '@/components/NavBar.vue';
-
-
-
+import NavBar from '@/components/NavBar.vue'
 
 const activeIndex = ref(0)
 const darkMode = computed(() => {
@@ -37,9 +34,8 @@ const carouselItems = [
     title: 'Pioneering the Future of Digital Energy Through',
     description: 'Solar, Storage, and Charging Excellence',
     darkMode: true,
-  }
+  },
 ]
-
 </script>
 
 <template>
@@ -48,7 +44,10 @@ const carouselItems = [
     <NavBar :darkMode="darkMode" />
     <!-- hero -->
     <div class="absolute inset-x-0">
-      <HeroCarousel :carouselItems v-model:current="activeIndex" />
+      <HeroCarousel
+        :carouselItems
+        v-model:current="activeIndex"
+      />
     </div>
   </div>
 </template>
